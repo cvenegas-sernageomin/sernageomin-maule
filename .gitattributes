@@ -1,0 +1,6 @@
+# Tratar archivos binarios correctamente en Git
+*.kmz binary
+*.jpg binary
+*.png binary
+*.tif binary
+*.pdf binary

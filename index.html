@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SERNAGEOMIN — Geología Región del Maule</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f0f4f8;
+      color: #333;
+    }
+    header {
+      background: #1a5276;
+      color: white;
+      padding: 18px 32px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    header img {
+      height: 60px; width: 60px;
+      border-radius: 50%;
+      border: 3px solid #aed6f1;
+      object-fit: cover;
+    }
+    header h1 { font-size: 22px; font-weight: 700; }
+    header p  { font-size: 13px; color: #aed6f1; margin-top: 2px; }
+
+    .hero {
+      background: linear-gradient(135deg, #1a5276 0%, #2e86c1 100%);
+      color: white;
+      padding: 48px 32px 40px;
+      text-align: center;
+    }
+    .hero h2 { font-size: 28px; margin-bottom: 10px; }
+    .hero p  { font-size: 15px; color: #d6eaf8; max-width: 600px; margin: 0 auto 28px; }
+
+    .btn-primary {
+      display: inline-block;
+      background: #e74c3c;
+      color: white;
+      padding: 14px 32px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: #c0392b; }
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: white;
+      padding: 13px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+      border: 2px solid #aed6f1;
+      margin-left: 12px;
+      transition: background 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+
+    .section { padding: 40px 32px; max-width: 960px; margin: 0 auto; }
+    .section h3 {
+      font-size: 20px;
+      color: #1a5276;
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 3px solid #2e86c1;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      border-top: 4px solid #2e86c1;
+    }
+    .card .icon { font-size: 28px; margin-bottom: 10px; }
+    .card h4    { font-size: 15px; color: #1a5276; margin-bottom: 6px; }
+    .card p     { font-size: 13px; color: #666; line-height: 1.5; }
+    .card .badge {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 10px;
+      background: #d6eaf8;
+      color: #1a5276;
+      font-weight: bold;
+    }
+    .card.soon { border-top-color: #adb5bd; }
+    .card.soon .badge { background: #e9ecef; color: #6c757d; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .stat {
+      background: white;
+      border-radius: 8px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+    }
+    .stat .num  { font-size: 32px; font-weight: 700; color: #1a5276; }
+    .stat .lbl  { font-size: 12px; color: #888; margin-top: 4px; }
+
+    .steps {
+      counter-reset: steps;
+      list-style: none;
+    }
+    .steps li {
+      counter-increment: steps;
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+      background: white;
+      border-radius: 8px;
+      padding: 14px 18px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+      align-items: flex-start;
+    }
+    .steps li::before {
+      content: counter(steps);
+      background: #1a5276;
+      color: white;
+      font-weight: bold;
+      font-size: 13px;
+      min-width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .steps li div { font-size: 13px; line-height: 1.6; }
+    .steps li strong { color: #1a5276; }
+    .steps li code {
+      background: #f0f4f8;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 12px;
+    }
+
+    footer {
+      background: #1a5276;
+      color: #aed6f1;
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="quads/banner_sernageomin.jpg" alt="SERNAGEOMIN"/>
+  <div>
+    <h1>Sistema de Información Geológica del Maule</h1>
+    <p>Servicio Nacional de Geología y Minería — Piloto Regional 2025</p>
+  </div>
+</header>
+
+<div class="hero">
+  <h2>Cartografía Geológica Interactiva</h2>
+  <p>
+    Accede a mapas geológicos, imágenes satelitales, sismos históricos,
+    cartografía histórica y remociones en masa por hoja IGM 1:100.000
+    para la Región del Maule.
+  </p>
+  <a class="btn-primary" href="maule_indice.kmz">
+    ⬇ Descargar KMZ — Google Earth
+  </a>
+  <a class="btn-secondary" href="maule_indice.kmz">
+    Ver en Google Earth Web
+  </a>
+</div>
+
+<div class="section">
+  <h3>📊 Cobertura del Piloto</h3>
+  <div class="stats">
+    <div class="stat"><div class="num">27</div><div class="lbl">Hojas IGM cubiertas</div></div>
+    <div class="stat"><div class="num">5</div><div class="lbl">Tipos de capa</div></div>
+    <div class="stat"><div class="num">1:100k</div><div class="lbl">Escala base</div></div>
+    <div class="stat"><div class="num">2025</div><div class="lbl">Año del piloto</div></div>
+  </div>
+
+  <h3>🗂️ Capas Disponibles</h3>
+  <div class="cards">
+    <div class="card">
+      <div class="icon">🗺️</div>
+      <h4>Carta Geológica 1:100.000</h4>
+      <p>Cartografía geológica vigente SERNAGEOMIN con datos vectoriales, leyenda y metadata por unidad litológica.</p>
+      <span class="badge">En elaboración</span>
+    </div>
+    <div class="card">
+      <div class="icon">🛰️</div>
+      <h4>Imagen Satelital</h4>
+      <p>Composición RGB Sentinel-2 con actualización anual. Resolución 10 m por pixel.</p>
+      <span class="badge" style="background:#fdebd0;color:#935116;">Próximamente</span>
+    </div>
+    <div class="card">
+      <div class="icon">⚡</div>
+      <h4>Sismos Históricos</h4>
+      <p>Catálogo sísmico instrumental del Centro Sismológico Nacional (CSN) 1980–2024, filtrado por hoja.</p>
+      <span class="badge" style="background:#fdebd0;color:#935116;">Próximamente</span>
+    </div>
+    <div class="card">
+      <div class="icon">📜</div>
+      <h4>Cartografía Histórica</h4>
+      <p>Mapas geológicos anteriores en formato raster. Sin datos vectoriales — solo imagen georeferenciada.</p>
+      <span class="badge">Piloto activo</span>
+    </div>
+    <div class="card">
+      <div class="icon">🌧️</div>
+      <h4>Remociones en Masa</h4>
+      <p>Inventarios y mapas de susceptibilidad a remociones para las hojas con estudios disponibles.</p>
+      <span class="badge">Piloto activo</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>🚀 ¿Cómo usar el KMZ?</h3>
+  <ol class="steps">
+    <li>
+      <div>
+        <strong>Descarga el archivo KMZ</strong> haciendo clic en el botón
+        "Descargar KMZ — Google Earth" de esta página.
+      </div>
+    </li>
+    <li>
+      <div>
+        <strong>Abre Google Earth Pro</strong> (gratuito en
+        <a href="https://www.google.com/earth/about/versions/" target="_blank">google.com/earth</a>)
+        o Google Earth Web en tu navegador.
+      </div>
+    </li>
+    <li>
+      <div>
+        <strong>Arrastra el archivo KMZ</strong> a la ventana de Google Earth
+        o usa <code>Archivo → Abrir</code>.
+      </div>
+    </li>
+    <li>
+      <div>
+        <strong>Navega al Maule</strong> y haz zoom sobre cualquier hoja IGM.
+        Aparecerá un ícono azul — haz clic para ver las capas disponibles.
+      </div>
+    </li>
+    <li>
+      <div>
+        <strong>Descarga capas individuales</strong> haciendo clic en
+        "▶ Abrir KMZ" dentro del popup de cada hoja.
+      </div>
+    </li>
+  </ol>
+</div>
+
+<footer>
+  SERNAGEOMIN — Servicio Nacional de Geología y Minería &nbsp;|&nbsp;
+  Sistema de Información Geológica del Maule — Piloto 2025 &nbsp;|&nbsp;
+  <a href="https://www.sernageomin.cl" style="color:#aed6f1;">www.sernageomin.cl</a>
+</footer>
+
+</body>
+</html>
