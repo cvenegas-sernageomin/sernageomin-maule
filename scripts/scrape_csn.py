@@ -81,7 +81,7 @@ def main():
     <Point><coordinates>{lon},{lat},0</coordinates></Point>
   </Placemark>""")
 
-    ahora = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M UTC")
+    ahora = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     kml = f"""<?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
 <Document>
