@@ -1,0 +1,36 @@
+name: Actualizar últimos sismos CSN
+
+on:
+  schedule:
+    - cron: "0 9 * * 1"      # cada lunes 09:00 UTC (06:00 Chile)
+  workflow_dispatch:           # permite ejecutarlo manualmente desde la pestaña Actions
+
+permissions:
+  contents: write
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Scrapear CSN y generar KMZ
+        run: python scripts/scrape_csn.py
+
+      - name: Commit si hay cambios
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add capas/sismos/ultimos_sismos_csn.kmz
+          if git diff --staged --quiet; then
+            echo "Sin cambios en el catálogo CSN."
+          else
+            git commit -m "Auto: actualizar últimos sismos CSN"
+            git push
+          fi
