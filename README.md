@@ -1,5 +1,7 @@
 # SERNAGEOMIN — Sistema de Información Geológica del Maule
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23196808.svg)](https://doi.org/10.5281/zenodo.23196808)
+
 Piloto de distribución de cartografía geológica interactiva por hoja IGM 1:100.000 para la Región del Maule.
 
 ## Contenido
@@ -30,4 +32,4 @@ La cartografía oficial de SERNAGEOMIN, IGM y CSN conserva sus condiciones de us
 
 Cita sugerida:
 
-> SERNAGEOMIN / Venegas Benavides, C. (2026). Sistema de Información Geológica del Maule (piloto KMZ) [aplicación web]. https://cvenegas-sernageomin.github.io/sernageomin-maule/
+> SERNAGEOMIN / Venegas Benavides, C. (2026). Sistema de Información Geológica del Maule (piloto KMZ) [aplicación web]. https://cvenegas-sernageomin.github.io/sernageomin-maule/ · DOI: https://doi.org/10.5281/zenodo.23196808
