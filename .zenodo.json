@@ -1,0 +1,30 @@
+{
+  "upload_type": "software",
+  "title": "Sistema de Información Geológica del Maule (piloto KMZ)",
+  "description": "<p>Piloto de distribución de cartografía geológica interactiva por hoja IGM 1:100.000 de la Región del Maule para Google Earth.</p><p>Publicado en https://cvenegas-sernageomin.github.io/sernageomin-maule/</p><p>La licencia CC BY-NC 4.0 cubre el trabajo original de los autores. No cubre el material de terceros:</p><ul><li>La cartografía oficial de SERNAGEOMIN, IGM y CSN conserva sus condiciones de uso.</li><li>Las librerías de terceros incluidas (por ejemplo en vendor/) conservan sus propias licencias.</li></ul>",
+  "creators": [
+    {
+      "name": "Servicio Nacional de Geología y Minería (SERNAGEOMIN)"
+    },
+    {
+      "name": "Venegas Benavides, Carlos",
+      "affiliation": "Servicio Nacional de Geología y Minería (SERNAGEOMIN)"
+    }
+  ],
+  "license": "cc-by-nc-4.0",
+  "access_right": "open",
+  "language": "spa",
+  "keywords": [
+    "cartografía geológica",
+    "Región del Maule",
+    "KMZ",
+    "SERNAGEOMIN"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://cvenegas-sernageomin.github.io/sernageomin-maule/",
+      "relation": "isDocumentedBy",
+      "resource_type": "other"
+    }
+  ]
+}
